@@ -1,0 +1,140 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Grid Container */
+.layout-wrapper {
+    display: grid;
+    grid-template-areas:
+        "before-header"
+        "header"
+        "after-header"
+        "navigation"
+        "before-main"
+        "feature"
+        "aside-first"
+        "before-content"
+        "content"
+        "after-content"
+        "aside-second"
+        "after-main"
+        "before-footer"
+        "footer"
+        "after-footer";
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Grid Area Styles */
+.layout-wrapper>* {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.before-header {
+    grid-area: before-header;
+    background: #f0f0f0;
+}
+
+.header {
+    grid-area: header;
+    background: #4CAF50;
+    color: white;
+}
+
+.after-header {
+    grid-area: after-header;
+    background: #e6f7ff;
+}
+
+.navigation {
+    grid-area: navigation;
+    background: #333;
+    color: white;
+}
+
+.before-main {
+    grid-area: before-main;
+    background: #ffeedb;
+}
+
+.feature {
+    grid-area: feature;
+    background: #d8a48f;
+}
+
+.aside-first {
+    grid-area: aside-first;
+    background: #f4f4f4;
+}
+
+.before-content {
+    grid-area: before-content;
+    background: #fff8dc;
+}
+
+.content {
+    grid-area: content;
+    background: #ffffff;
+}
+
+.after-content {
+    grid-area: after-content;
+    background: #faf0e6;
+}
+
+.aside-second {
+    grid-area: aside-second;
+    background: #f4f4f4;
+}
+
+.after-main {
+    grid-area: after-main;
+    background: #d1e7dd;
+}
+
+.before-footer {
+    grid-area: before-footer;
+    background: #fdebd0;
+}
+
+.footer {
+    grid-area: footer;
+    background: #4CAF50;
+    color: white;
+}
+
+.after-footer {
+    grid-area: after-footer;
+    background: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .layout-wrapper {
+        grid-template-areas:
+            "before-header before-header before-header"
+            "header header header"
+            "after-header after-header after-header"
+            "navigation navigation navigation"
+            "before-main before-main before-main"
+            "feature feature feature"
+            "aside-first before-content aside-second"
+            "aside-first content aside-second"
+            "aside-first after-content aside-second"
+            "after-main after-main after-main"
+            "before-footer before-footer before-footer"
+            "footer footer footer"
+            "after-footer after-footer after-footer";
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+}
