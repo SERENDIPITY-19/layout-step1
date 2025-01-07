@@ -10,23 +10,22 @@ body {
     line-height: 1.6;
 }
 
-:root {
-    --primary-bg-color: #f8f9fc;
-    --primary-text-color: black;
+:root{
+    --main-bg-color: #f5f5f5;
     --secondary-text-color: white;
-    --nav-bg-color: #2e59d9;
-    --main-bg-color: #fff;
-    --box-shadow-color: rgb(0, 0, 0, 0.1);
+    --header-bg-color: #232f3e;
     --border-color: #ccc;
+    --nav-bg-color: #374151;
+    --footer-bg-color: rgb(218, 217, 217);
 }
 
 /* Grid Container */
 .layout-wrapper {
     display: grid;
     grid-template-areas:
-        "navigation before-header"
-        "navigation header"
-        "navigation after-header"
+        "before-header before-header"
+        "header header"
+        "after-header after-header"
         "navigation before-main"
         "navigation feature"
         "navigation aside-first"
@@ -35,10 +34,10 @@ body {
         "navigation after-content"
         "navigation aside-second"
         "navigation after-main"
-        "navigation before-footer"
-        "navigation footer"
-        "navigation after-footer";
-    grid-template-columns: auto 5fr;
+        "before-footer before-footer"
+        "footer footer"
+        "after-footer after-footer";
+    grid-template-columns: 0.5fr 5fr;
     min-height: 100vh;
 }
 
@@ -50,19 +49,20 @@ body {
 
 .before-header {
     grid-area: before-header;
-    background: var(--primary-bg-color);
+    background: var(--header-bg-color);
+    color: var(--secondary-text-color);
 }
 
 .header {
     grid-area: header;
-    background: var(--primary-bg-color);
+    background: var(--header-bg-color);
+    color: var(--secondary-text-color);
 }
 
 .after-header {
     grid-area: after-header;
-    background: var(--primary-bg-color);
-    box-shadow: 0px 10px 10px var(--box-shadow-color);
-    z-index: 1000;
+    background: var(--header-bg-color);
+    color: var(--secondary-text-color);
 }
 
 .navigation {
@@ -109,41 +109,60 @@ body {
 .after-main {
     grid-area: after-main;
     background: var(--main-bg-color);
-    box-shadow: 0px 10px 10px var(--box-shadow-color);
-    z-index: 1000;
 }
 
 .before-footer {
     grid-area: before-footer;
-    background: var(--primary-bg-color);
+    background: var(--footer-bg-color);
 }
 
 .footer {
     grid-area: footer;
-    background: var(--primary-bg-color);
+    background: var(--footer-bg-color);
 }
 
 .after-footer {
     grid-area: after-footer;
-    background: var(--primary-bg-color);
+    background: var(--footer-bg-color);
 }
 
 /* Responsive Design */
-@media (min-width: 768px) {
-    .layout-wrapper {
-        grid-template-areas:
-        "navigation before-header before-header before-header"
-        "navigation header header header"
-        "navigation after-header after-header after-header"
-        "navigation before-main before-main before-main"
-        "navigation feature feature feature"
-        "navigation aside-first before-content aside-second"
-        "navigation aside-first content aside-second"
-        "navigation aside-first after-content aside-second"
-        "navigation after-main after-main after-main"
-        "navigation before-footer before-footer before-footer"
-        "navigation footer footer footer"
-        "navigation after-footer after-footer after-footer";
-        grid-template-columns: 1fr 2fr 2fr 2fr;
+/* Tablet View */
+@media (min-width: 768px) and (max-width: 1023px) {
+        .layout-wrapper {
+            grid-template-areas:
+                "before-header before-header before-header before-header"
+                "header header header header"
+                "after-header after-header after-header after-header"
+                "navigation before-main before-main before-main"
+                "navigation feature feature feature"
+                "navigation aside-first before-content aside-second"
+                "navigation aside-first content aside-second"
+                "navigation aside-first after-content aside-second"
+                "navigation after-main after-main after-main"
+                "before-footer before-footer before-footer before-footer"
+                "footer footer footer footer"
+                "after-footer after-footer after-footer after-footer";
+            grid-template-columns: 0.5fr 2fr 2fr 2fr;
+        }
     }
-}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+        .layout-wrapper {
+            grid-template-areas:
+                "before-header before-header before-header before-header"
+                "header header header header"
+                "after-header after-header after-header after-header"
+                "navigation before-main before-main before-main"
+                "navigation feature feature feature"
+                "navigation aside-first before-content aside-second"
+                "navigation aside-first content aside-second"
+                "navigation aside-first after-content aside-second"
+                "navigation after-main after-main after-main"
+                "before-footer before-footer before-footer before-footer"
+                "footer footer footer footer"
+                "after-footer after-footer after-footer after-footer";
+            grid-template-columns: 1fr 2fr 2fr 2fr;
+        }
+    }
