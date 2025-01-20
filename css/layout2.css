@@ -13,9 +13,9 @@ body {
 :root{
     --main-bg-color: #f5f5f5;
     --secondary-text-color: white;
-    --header-bg-color: #232f3e;
+    --header-bg-color: rgb(1, 43, 48);
     --border-color: #ccc;
-    --nav-bg-color: #374151;
+    --nav-bg-color: rgb(3, 54, 61);
     --footer-bg-color: rgb(218, 217, 217);
 }
 
@@ -24,8 +24,8 @@ body {
     display: grid;
     grid-template-areas:
         "before-header before-header"
-        "header header"
-        "after-header after-header"
+        "navigation header"
+        "navigation after-header"
         "navigation before-main"
         "navigation feature"
         "navigation aside-first"
@@ -55,14 +55,12 @@ body {
 
 .header {
     grid-area: header;
-    background: var(--header-bg-color);
-    color: var(--secondary-text-color);
+    background: var(--main-bg-color);
 }
 
 .after-header {
     grid-area: after-header;
-    background: var(--header-bg-color);
-    color: var(--secondary-text-color);
+    background: var(--main-bg-color);
 }
 
 .navigation {
@@ -132,8 +130,8 @@ body {
         .layout-wrapper {
             grid-template-areas:
                 "before-header before-header before-header before-header"
-                "header header header header"
-                "after-header after-header after-header after-header"
+                "navigation header header header"
+                "navigation after-header after-header after-header"
                 "navigation before-main before-main before-main"
                 "navigation feature feature feature"
                 "navigation aside-first before-content aside-second"
@@ -152,8 +150,8 @@ body {
         .layout-wrapper {
             grid-template-areas:
                 "before-header before-header before-header before-header"
-                "header header header header"
-                "after-header after-header after-header after-header"
+                "navigation header header header"
+                "navigation after-header after-header after-header"
                 "navigation before-main before-main before-main"
                 "navigation feature feature feature"
                 "navigation aside-first before-content aside-second"
